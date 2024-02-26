@@ -2,9 +2,8 @@ module PrimeNumbers where
 
 isPrime :: Int -> Bool
 isPrime n | n <= 0 = False
-          | n == 1 = False
-          | (div n 1 == n && div n n == 1) && (mod n 2 /= 0) = True
-          | otherwise = False
+isPrime 1 = False
+isPrime n = null [x | x <- [2..n-1], mod n x == 0]
 
 getPrimes :: Int -> [Int]
 getPrimes n = [x | x <- [2..n], isPrime x]
