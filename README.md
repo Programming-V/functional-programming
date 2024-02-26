@@ -1,1 +1,4 @@
-# functional-programming
+# Functional Programming
+
+### Team:
+- José Luis Terán
