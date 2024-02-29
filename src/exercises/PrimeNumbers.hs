@@ -1,4 +1,4 @@
-module PrimeNumbers where
+module Exercises where
 
 isPrime :: Int -> Bool
 isPrime n | n <= 0 = False
