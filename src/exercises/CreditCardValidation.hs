@@ -22,3 +22,6 @@ mySum d = (d `mod` 10) + (d `div` 10)
 sumDigits :: [Integer] -> Integer
 sumDigits [x] = mySum x
 sumDigits (x:xs) = mySum x + sumDigits xs
+
+validate :: Integer -> Bool
+validate n = (mod (sumDigits (doubleEveryOther (toDigits n))) 10) == 0
