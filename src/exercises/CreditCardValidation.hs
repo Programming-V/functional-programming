@@ -15,3 +15,10 @@ hasEvenIndex (index, d) | index `mod` 2 == 0 = d * 2
 doubleEveryOther :: [Integer] -> [Integer]
 doubleEveryOther [] = []
 doubleEveryOther digits = map hasEvenIndex (zip [1..] digits)
+
+mySum :: Integer -> Integer
+mySum d = (d `mod` 10) + (d `div` 10)
+
+sumDigits :: [Integer] -> Integer
+sumDigits [x] = mySum x
+sumDigits (x:xs) = mySum x + sumDigits xs
