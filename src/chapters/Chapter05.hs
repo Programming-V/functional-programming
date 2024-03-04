@@ -19,6 +19,31 @@ perfects :: Int -> [Int]
 perfects n = [x | x <- [1..n], sum (divisors x) == x]
 
 {-
+  7. Show how the list comprehension [(x,y) | x <- [1,2], y <- [3,4]] with two generators
+    can be re-expressed using two comprehensions with single generators. 
+    Hint: nest one comprehension within the other and make use of the 
+    library function concat :: [[a]] -> [a].
+-}
+
+singleLists :: [(Int, Int)]
+singleLists = [(x, y) | x <- [1,2], y <- [3,4]]
+
+nestedLists :: [(Int, Int)]
+nestedLists = concat [[(x, y) | y <- [3,4]] | x <- [1,2]]
+
+{-
+  8. Redefine the function positions using the function find.
+-}
+
+positions :: Eq a => a -> [a] -> [Int]
+positions x xs = findIndices 0 xs
+  where
+    findIndices _ [] = []
+    findIndices idx (y:ys)
+      | x == y    = idx : findIndices (idx + 1) ys
+      | otherwise = findIndices (idx + 1) ys
+
+{-
   9. The scalar product of two lists of integers xs and ys of length n is given by the sum 
   of the products of corresponding integers:
   In a similar manner to chisqr, show how a list comprehension can be used to define a function
