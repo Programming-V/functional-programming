@@ -14,4 +14,8 @@
 
 scalarProduct :: [Int] -> [Int] -> Int
 scalarProduct [] [] = 0
-scalarProduct (x:xs) (y:ys) = x * y + scalarProduct xs ys
+scalarProduct (x:xs) (y:ys) = x * y + sum [x * y | (x, y) <- zip xs ys]
+
+scalarProduct' :: [Int] -> [Int] -> Int
+scalarProduct' [] [] = 0
+scalarProduct' (x:xs) (y:ys) = x * y + scalarProduct xs ys
